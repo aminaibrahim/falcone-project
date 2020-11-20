@@ -1,0 +1,10 @@
+<div>
+
+  <select  #selectedPlanet
+  (change)='onOptionsSelected(selectedPlanet.value)'>
+    <option selected hidden>Select</option>
+
+    <option *ngFor='let planet of planetsList' [value]="planet.name">{{planet.name}}</option>
+
+  </select>
+</div>

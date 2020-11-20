@@ -1,0 +1,5 @@
+<div *ngFor ='let vehicle of vehicleList'>
+    <input type="radio" id="vehicle" name="vehicleList" [value]="vehicle" (change)="onItemChange($event)">
+    <label for="vehicle">{{vehicle.name }}({{vehicle.total_no}})</label><br>
+</div>
+
