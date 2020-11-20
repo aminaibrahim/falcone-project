@@ -11,7 +11,7 @@ export class PlanetSelectionComponent implements OnInit {
   choiceList=[1,2,3,4]
 
   planetsList;
-
+  filteredList;
   
   constructor(private planetService: PlanetsApiService) { }
 
@@ -24,19 +24,28 @@ export class PlanetSelectionComponent implements OnInit {
     this.planetService.getPlanetsList()
       .subscribe((data: planet[]) =>{
 
-        this.planetsList = data.filter((element)=>
-          this.selectedPlanets.indexOf(element.name)!==1)
-        console.log(this.planetsList);
-        
+        // this.amina = data.filter((element)=>
+        //   this.selectedPlanets.indexOf(element.name)!==1)
+        // console.log(this.planetsList);
+        this.filteredList=data;
+        this.planetsList = data;
       })
 
   }
 
-  onOptionsSelected(value:string){
-    console.log(value);
+  onOptionsSelected(i:number,value:string){
     this.planetService.onPlanetSelected();
-    this.selectedPlanets.push(value);
-     this.planetsList = this.planetsList.filter(element=>this.selectedPlanets.indexOf(element.name)==-1)
+    // if(this.selectedPlanets[i]!
+    // this.selectedPlanets.splice(i,0,value);
+    this.selectedPlanets[i]=value;
+    console.log(this.selectedPlanets);
+    
+     this.planetsList = this.filteredList.filter(element=>{
+       console.log(element);
+       
+       console.log(this.selectedPlanets.indexOf(element.name)==-1);
+       return (this.selectedPlanets.indexOf(element.name)==-1)
    
+})
 }
 }
