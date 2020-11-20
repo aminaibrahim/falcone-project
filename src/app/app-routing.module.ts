@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ResultComponent } from './components/result/result.component';
+import { SelectionComponent } from './components/selection/selection.component';
 
 const routes: Routes = [
  
@@ -12,7 +13,7 @@ const routes: Routes = [
   },
   {
     path:'**',
-    component:DashboardComponent
+    component:SelectionComponent
   },
   
 ];

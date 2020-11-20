@@ -8,7 +8,7 @@ import { planet, PlanetsApiService } from 'src/app/services/planets-api/planets-
   styleUrls: ['./planet-selection.component.css']
 })
 export class PlanetSelectionComponent implements OnInit {
-
+  choiceList=[1,2,3,4]
 
   planetsList;
 
@@ -34,10 +34,9 @@ export class PlanetSelectionComponent implements OnInit {
 
   onOptionsSelected(value:string){
     console.log(value);
-    
     this.planetService.onPlanetSelected();
     this.selectedPlanets.push(value);
-    this.getPlanetsList();
+     this.planetsList = this.planetsList.filter(element=>this.selectedPlanets.indexOf(element.name)==-1)
+   
 }
-
 }
