@@ -1,8 +1,8 @@
 
-  <div class="line" *ngFor="let choice of choiceList;let i=index">
-    <select  id="selectBox"  (change)='onOptionsSelected(i,$event.target.value)'>
-      <option value="0"  hidden>Select</option>
-      <option *ngFor="let planet of availablePlanetsList" value={{planet.name}} >{{planet.name}}</option>
-    
-    </select>
-</div>
+
+<div class="row" *ngFor="let choice of choiceList;let i=index">  
+  <select #selectBox id="selectBox" (change)='onOptionsSelected(i,$event.target.value)' >
+    <option value="0"  hidden>Select</option>
+    <option class="block" *ngFor="let planet of availablePlanetsList" value={{planet.name}} >{{planet.name}}</option>
+  
+  </select>

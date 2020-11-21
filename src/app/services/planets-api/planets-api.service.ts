@@ -13,7 +13,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class PlanetsApiService {
-  isPlanetSelected= new Subject<boolean>();
+  isPlanetSelected= new Subject<any>();
   planets_API_URL = 'https://findfalcone.herokuapp.com/planets';
 
   constructor(private http: HttpClient) { }
@@ -24,7 +24,7 @@ export class PlanetsApiService {
       return this.http.get<planet[]>(this.planets_API_URL);
     }
 
-    onPlanetSelected(){
-      this.isPlanetSelected.next(true);
+    onPlanetSelected(index){
+      this.isPlanetSelected.next(index);
     }
 }

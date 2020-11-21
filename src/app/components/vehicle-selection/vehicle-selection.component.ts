@@ -9,22 +9,23 @@ import { vehicle, VehiclesAPIService } from 'src/app/services/vehicles-api/vehic
 })
 export class VehicleSelectionComponent implements OnInit {
 
-
+  selectedPlanets = new Array;
+  choices = [1,2,3,4]
   vehicleList;
   constructor(private planetService: PlanetsApiService,
     private vehicleService: VehiclesAPIService) { }
 
   ngOnInit(): void {
 
-    this.planetService.isPlanetSelected.subscribe((data:Boolean)=>{
-      if(data){
+    this.planetService.isPlanetSelected.subscribe((data)=>{
+      this.selectedPlanets = data;
         this.getVehiclesList();
-      }
+      
     })
    
   }
-  onItemChange(value){
-    console.log(" Value is : ", value );
+  onItemChange(i,value){
+    console.log(" Value is : ",i, value );
  }
 
   getVehiclesList() {

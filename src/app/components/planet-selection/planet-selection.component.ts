@@ -15,6 +15,9 @@ export class PlanetSelectionComponent implements OnInit {
   selectedPlanets = new Array;
   
   
+
+ 
+
   constructor(private planetService: PlanetsApiService) { }
 
   ngOnInit(): void {
@@ -32,12 +35,12 @@ export class PlanetSelectionComponent implements OnInit {
 
   }
 
-  onOptionsSelected(i:number,value:string){
-    
+  onOptionsSelected(index:number,value:string){
+  
 
-    this.planetService.onPlanetSelected();
     
-    this.selectedPlanets[i]=value;
+    this.selectedPlanets[index]=value;
+    this.planetService.onPlanetSelected(this.selectedPlanets);
     
      this.availablePlanetsList = this.allPlanetsList.filter(element=> (this.selectedPlanets.indexOf(element.name)==-1)
    )
